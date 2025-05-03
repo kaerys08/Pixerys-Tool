@@ -1,0 +1,56 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:Pixerys.Controls">
+
+  <!--
+    Additional resources 
+    Using Control Themes:
+         https://docs.avaloniaui.net/docs/basics/user-interface/styling/control-themes
+    Using Theme Variants:
+         https://docs.avaloniaui.net/docs/guides/styles-and-resources/how-to-use-theme-variants
+  -->
+
+  <Design.PreviewWith>
+    <controls:SaturationColorPicker
+      Width="86"
+      Height="86"
+      Background="Red"/>
+  </Design.PreviewWith>
+
+  <ControlTheme x:Key="{x:Type controls:SaturationColorPicker}" TargetType="controls:SaturationColorPicker">
+
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Canvas
+          Width="{TemplateBinding Width}"
+          Height="{TemplateBinding Height}">
+          <ContentControl
+            x:Name="PART_SaturationPicker"
+            Width="{TemplateBinding Width}"
+            Height="{TemplateBinding Height}"
+            Background="{TemplateBinding Background}"/>
+          <Rectangle
+            x:Name="PART_SaturationPickerWhite"
+            Width="{TemplateBinding Width}"
+            Height="{TemplateBinding Height}"
+            Fill="{TemplateBinding LinearGradientWhite}"
+            IsHitTestVisible="False">
+          </Rectangle>
+          <Rectangle
+            x:Name="PART_SaturationPickerBlack"
+            Width="{TemplateBinding Width}"
+            Height="{TemplateBinding Height}"
+            Fill="{TemplateBinding LinearGradientBlack}"
+            IsHitTestVisible="False">
+          </Rectangle>
+          <controls:SelectorColorPicker
+            Width="16"
+            Height="16"
+            Background="Black"
+            Canvas.Left="-8"
+            Canvas.Top="-8"/>
+        </Canvas>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

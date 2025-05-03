@@ -1,0 +1,51 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:Pixerys.Controls">
+
+  <!--
+    Additional resources 
+    Using Control Themes:
+         https://docs.avaloniaui.net/docs/basics/user-interface/styling/control-themes
+    Using Theme Variants:
+         https://docs.avaloniaui.net/docs/guides/styles-and-resources/how-to-use-theme-variants
+  -->
+
+  <Design.PreviewWith>
+    <Canvas
+      Width="200"
+      Height="200">
+      <controls:SelectorColorPicker
+        Width="80"
+        Height="80"
+        Canvas.Left="10"
+        Canvas.Top="100"
+        Background="Pink"/>
+      <Rectangle
+        Width="86"
+        Height="86"
+        Fill="Red"
+        Canvas.Left="43"
+        Canvas.Top="43"/>
+    </Canvas>
+  </Design.PreviewWith>
+
+  <ControlTheme x:Key="{x:Type controls:SelectorColorPicker}" TargetType="controls:SelectorColorPicker">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Canvas
+          Width="{TemplateBinding Width}"
+          Height="{TemplateBinding Height}"
+          Background="Transparent">
+          <Ellipse
+            x:Name="PART_SelectorPresenter"
+            StrokeThickness="2"
+            Stroke="{TemplateBinding Background}"
+            IsHitTestVisible="False"
+            Width="{TemplateBinding Width}"
+            Height="{TemplateBinding Height}">
+          </Ellipse>
+        </Canvas>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>
